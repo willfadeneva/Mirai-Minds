@@ -1,3 +1,4 @@
+<img width="2480" height="889" alt="image" src="https://github.com/user-attachments/assets/bb673dc4-c563-458b-99e4-d7b0804c7233" />
 # Mirai Minds
 
 A free, modern, interactive English-learning MVP for children in Hadano, Kanagawa, Japan.
