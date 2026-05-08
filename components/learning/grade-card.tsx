@@ -1,0 +1,2 @@
+import Link from "next/link";import { Card } from "@/components/ui/card";import type { GradeCurriculum } from "@/data/english-curriculum";
+export function GradeCard({grade}:{grade:GradeCurriculum}){return <Link href={`/learn/${grade.grade}`}><Card className="h-full transition hover:-translate-y-1 hover:bg-white/10"><p className="text-sunbeam">Grade {grade.grade}</p><h3 className="mt-2 text-2xl font-black">{grade.level}</h3><p className="mt-3 text-sm text-white/65">{grade.theme}</p><p className="mt-4 text-xs text-aqua">Open lessons →</p></Card></Link>}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirai Minds Preview</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(135deg,#eff6ff,#fff7ed 45%,#fdf2f8);color:#0f172a}a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:24px}.nav{position:sticky;top:0;z-index:2;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(14,165,233,.14)}.nav .wrap{display:flex;justify-content:space-between;align-items:center}.links{display:flex;gap:16px;flex-wrap:wrap;color:#475569;font-size:14px;font-weight:800}.hero{min-height:74vh;display:grid;place-items:center;overflow:hidden;position:relative;background:linear-gradient(rgba(255,255,255,.70),rgba(255,255,255,.78)),url('../public/assets/kid-learning-bg.svg') center/cover no-repeat}.blob{position:absolute;border-radius:999px;filter:blur(50px);opacity:.35}.b1{width:300px;height:300px;background:#7dd3fc;top:8%;left:8%;animation:float 7s infinite alternate}.b2{width:360px;height:360px;background:#f9a8d4;right:5%;bottom:5%;animation:float 9s infinite alternate-reverse}.card{border:1px solid rgba(14,165,233,.16);background:rgba(255,255,255,.82);border-radius:32px;padding:24px;box-shadow:0 18px 50px rgba(14,165,233,.12),0 8px 22px rgba(251,113,133,.10)}.hero h1{font-size:clamp(42px,8vw,92px);line-height:.94;margin:0;max-width:980px}.muted{color:#475569;line-height:1.75}.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.pill{display:inline-flex;border-radius:999px;background:white;padding:10px 14px;margin:4px;color:#475569;font-weight:800;border:1px solid rgba(14,165,233,.16)}.btn{display:inline-block;background:#38bdf8;color:#071129;border-radius:999px;padding:14px 18px;font-weight:900;border:0}.ghost{background:white;color:#0f172a;border:1px solid rgba(14,165,233,.16)}.flip{min-height:180px;cursor:pointer}.big{font-size:52px}.accent{color:#0284c7}.sun{color:#d97706}.section{padding:56px 0}.stars{font-size:40px;color:#f59e0b}.mission.done{outline:3px solid #38bdf8}.planet.locked{opacity:.55}.story{display:none}.story.active{display:block}.jp{background:#fff;border-radius:22px;padding:14px 16px;color:#334155;border:1px solid rgba(14,165,233,.12)}@keyframes float{to{transform:translateY(32px) translateX(18px)}}.footer{border-top:1px solid rgba(14,165,233,.16);background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(240,249,255,.95),rgba(255,247,237,.95));padding:34px 0;color:#475569}.footer-grid{display:grid;gap:18px;grid-template-columns:1.2fr 1fr 1fr}.footer-card{background:rgba(255,255,255,.76);border:1px solid rgba(14,165,233,.14);border-radius:24px;padding:18px;box-shadow:0 8px 22px rgba(14,165,233,.08)}.footer a{font-weight:900;color:#6d28d9;text-decoration:underline;text-underline-offset:4px}.footer small{display:block;line-height:1.7}.footer-bottom{border-top:1px solid rgba(14,165,233,.14);margin-top:18px;padding-top:16px;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}@media(max-width:800px){.footer-grid{grid-template-columns:1fr}}@media(max-width:700px){.links{display:none}.hero{min-height:66vh}}
+  </style>
+</head>
+<body>
+  <div class="nav"><div class="wrap"><strong>🌈 Mirai Minds</strong><div class="links"><a href="#how">How to use</a><a href="#daily">Daily</a><a href="#galaxy">Galaxy</a><a href="#kana">Kana</a><a href="#games">Games</a><a href="#safety">Safety</a></div></div></div>
+  <section class="hero"><div class="blob b1"></div><div class="blob b2"></div><div class="wrap" style="position:relative"><p class="accent"><b>Hadano, Kanagawa · Free standalone English site</b></p><h1>A bright, friendly English learning world for kids starting from zero.</h1><p class="muted" style="max-width:780px;font-size:20px">Grades 1–12 with alphabet cards, vocabulary pictures, 240 stories, slow female-style audio, games, worksheets, placement, parent progress, Japanese guidance, local profiles, reward map, and safety-first privacy.</p><p class="jp" style="max-width:780px">ログイン不要。広告なし。子どもが英語ゼロから、絵・音・物語・ゲームで楽しく学べるサイトです。</p><p><a class="btn" href="#how">使い方を見る</a> <a class="btn ghost" href="#daily">Daily mission</a></p></div></section>
+  <main class="wrap">
+    <section id="how" class="section"><h2>How to use / 使い方</h2><div class="grid g3"><div class="card"><h3>1. Start Here</h3><p class="muted">Choose the closest level or take the placement test.</p><p class="jp">まずレベルを選ぶか、レベルチェックを受けます。</p></div><div class="card"><h3>2. Listen slowly</h3><p class="muted">Tap audio, repeat words, then read tiny stories.</p><p class="jp">音声を聞いて、まねして、短い物語を読みます。</p></div><div class="card"><h3>3. Collect stars</h3><p class="muted">Finish cards, stories, games, and worksheets.</p><p class="jp">カード・物語・ゲームを終えると星が増えます。</p></div></div></section>
+    <section id="new" class="section"><h2>Full standalone feature set</h2><div class="grid g4" id="featureGrid"></div></section>
+    <section id="daily" class="section"><h2>Daily 15-minute mission</h2><p class="muted">Click tasks to mark them complete. The real Next.js app saves daily state locally in the browser.</p><p class="jp">毎日15分。聞く・読む・遊ぶ・話すを少しずつ練習します。</p><div class="grid g3" id="missionGrid"></div></section>
+    <section id="galaxy" class="section"><h2>Reward galaxy map</h2><p class="muted">Progress stars unlock learning planets.</p><div class="grid g4" id="planetGrid"></div></section>
+    <section id="kana" class="section"><h2>Kana-to-English beginner support</h2><div class="grid g3"><div class="card"><div class="big">あ</div><h3>あ → apple 🍎</h3><p class="muted">Use familiar sounds as a gentle bridge, then teach real English pronunciation.</p></div><div class="card"><div class="big">か</div><h3>か → cat 🐱</h3><p class="muted">Cat begins with a strong /k/ sound.</p></div><div class="card"><div class="big">ら</div><h3>ら → rainbow 🌈</h3><p class="muted">English R needs separate listening and copying practice.</p></div></div></section>
+    <section class="section"><h2>Hadano stories + seasonal lessons</h2><div class="card"><p><button class="btn ghost" onclick="showStory(0)">Hadano river</button> <button class="btn ghost" onclick="showStory(1)">Station English</button> <button class="btn ghost" onclick="showStory(2)">Sakura lesson</button></p><div class="story active"><h3>A Walk by Mizunashi River</h3><p class="muted">I walk by the river. I see water. I see a bird. I say, “Hello, bird!”</p></div><div class="story"><h3>Hadano Station Adventure</h3><p class="muted">I need to meet my friend at Hadano Station. I read signs, ask for help, and check the platform carefully.</p></div><div class="story"><h3>Sakura Picnic</h3><p class="muted">The flowers are pink. The park is beautiful. I write three spring sentences in English.</p></div></div></section>
+    <section id="games" class="section"><h2>Extra mini games</h2><div class="grid g4"><div class="card"><h3>Word maze</h3><p class="muted">Move forward by choosing the right English word.</p></div><div class="card"><h3>Story order</h3><p class="muted">Tap sentences in the correct sequence.</p></div><div class="card"><h3>Rhyming pairs</h3><p class="muted">cat/hat, sun/fun, book/look.</p></div><div class="card"><h3>Picture sentence choice</h3><p class="muted">Choose the sentence that matches the picture.</p></div></div></section>
+    <section id="safety" class="section"><div class="card"><h2>Child-safe privacy promise / 安全への約束</h2><p class="stars">🛡️ ⭐ 🛡️</p><p class="muted">No login. No ads. No tracking. No public profiles. No chat rooms. Progress stays only on this browser/device using localStorage.</p><p class="jp">ログイン不要、広告なし、トラッキングなし。進捗はこの端末のブラウザ内だけに保存されます。</p></div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h2>🌈 Mirai Minds</h2>
+        <p class="muted">Free, no-login English learning for kids in Hadano, Kanagawa.</p>
+        <p class="jp">秦野市・神奈川県の子どもたちのための、無料・ログイン不要の英語学習サイトです。</p>
+      </div>
+      <div class="footer-card">
+        <h3>Contact / お問い合わせ</h3>
+        <p><a href="mailto:charanjotsingh@gmail.com">charanjotsingh@gmail.com</a></p>
+        <small>Questions, feedback, or local collaboration ideas are welcome.</small>
+        <small>ご質問・ご意見・地域での連携について、お気軽にご連絡ください。</small>
+      </div>
+      <div class="footer-card">
+        <h3>Credits</h3>
+        <p>Designed by <a href="https://mir-ai.cloud/" target="_blank" rel="noopener noreferrer">mir-ai.cloud</a></p>
+        <small>Built with free and open-source tools for a safe, friendly learning experience.</small>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <small>© 2026 Mirai Minds. All rights reserved.</small>
+      <small><a href="#safety">Privacy / 安全とプライバシー</a> · <a href="#how">How to use / 使い方</a></small>
+    </div>
+  </footer>
+  <script>
+    const features=['Japanese how-to-use pages','Kid-friendly light theme','Colorful learning background','Start Here onboarding','Daily 15-minute mission','Offline PWA foundation','Privacy page','Dyslexia-friendly mode','Reward galaxy map','Kana-to-English bridge','Slow female-style voice + recorder','Hadano stories','Seasonal Japan lessons','Life-skill English','Extra mini games','Parent checklist','Bilingual parent guide','Grammar Lab','Local profiles','Avatar picker','Celebration effects'];
+    document.getElementById('featureGrid').innerHTML=features.map(f=>`<div class="card"><h3>${f}</h3><p class="muted">Added to the Next.js project.</p></div>`).join('');
+    const missions=['Listen & say','Flip cards','Read a tiny story','Play one game','Speak or write'];
+    document.getElementById('missionGrid').innerHTML=missions.map((m,i)=>`<div class="card mission" onclick="this.classList.toggle('done')"><p class="accent">Step ${i+1}</p><h3>${m}</h3><p class="muted">Click to complete ⭐</p></div>`).join('');
+    const planets=['Planet ABC','Word Moon','Story Star','Grammar Garden','Speaking Comet','Reading Galaxy','Mirai Portfolio','Future Communicator'];
+    document.getElementById('planetGrid').innerHTML=planets.map((p,i)=>`<div class="card planet ${i>2?'locked':''}"><div class="big">${['🔤','🌙','⭐','🌱','☄️','🌌','🚀','🏆'][i]}</div><h3>${p}</h3><p class="muted">${i>2?'Locked preview':'Unlocked preview'}</p></div>`).join('');
+    function showStory(n){document.querySelectorAll('.story').forEach((s,i)=>s.classList.toggle('active',i===n))}
+  </script>
+</body>
+</html>

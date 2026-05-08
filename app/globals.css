@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(125, 211, 252, 0.28), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(251, 207, 232, 0.36), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(254, 240, 138, 0.32), transparent 32%),
+    linear-gradient(135deg, #eff6ff 0%, #fff7ed 45%, #fdf2f8 100%);
+  color: #0f172a;
+  background-attachment: fixed;
+}
+
+:root {
+  --kid-ink: #0f172a;
+  --kid-muted: #475569;
+  --kid-card: rgba(255,255,255,.86);
+  --kid-border: rgba(14,165,233,.18);
+}
+
+.bg-midnight,
+.bg-midnight\/70 {
+  background: transparent !important;
+}
+
+.text-white,
+.text-white\/80,
+.text-white\/75,
+.text-white\/72,
+.text-white\/70,
+.text-white\/65,
+.text-white\/60,
+.text-white\/50,
+.text-white\/40 {
+  color: #475569 !important;
+}
+
+.text-aqua { color: #0284c7 !important; }
+.text-sunbeam { color: #d97706 !important; }
+.text-midnight { color: #0f172a !important; }
+.bg-aqua { background-color: #38bdf8 !important; }
+.bg-sunbeam { background-color: #fbbf24 !important; }
+.bg-nebula { background-color: #a78bfa !important; }
+
+.bg-white\/\[0\.07\],
+.bg-white\/10,
+.bg-white\/5,
+.bg-white\/20,
+.bg-black\/20 {
+  background: rgba(255,255,255,.78) !important;
+}
+
+.border-white\/10,
+.border-white\/70 {
+  border-color: var(--kid-border) !important;
+}
+
+.shadow-glow {
+  box-shadow: 0 18px 50px rgba(14,165,233,.16), 0 8px 22px rgba(251,113,133,.12) !important;
+}
+
+.magic-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(14,165,233,.18) 1px, transparent 0);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(black, transparent 92%);
+}
+
+.kid-hero {
+  background:
+    linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.82)),
+    url('/assets/kid-learning-bg.svg') center/cover no-repeat;
+  border: 1px solid rgba(14,165,233,.16);
+  box-shadow: 0 24px 70px rgba(14,165,233,.15);
+}
+
+.kid-pill {
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.16);
+}
+
+a, button { touch-action: manipulation; }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid rgba(14,165,233,.45);
+  outline-offset: 3px;
+}
+
+/* Accessibility toggles */
+html.a11y-large body { font-size: 112%; }
+html.a11y-spacing p,
+html.a11y-spacing li { letter-spacing: .04em; line-height: 2; }
+html.a11y-contrast body { background: #000 !important; color: #fff !important; }
+html.a11y-contrast .bg-midnight,
+html.a11y-contrast .bg-midnight\/70 { background: #000 !important; }
+html.a11y-contrast .text-white,
+html.a11y-contrast .text-white\/80,
+html.a11y-contrast .text-white\/75,
+html.a11y-contrast .text-white\/72,
+html.a11y-contrast .text-white\/70,
+html.a11y-contrast .text-white\/65,
+html.a11y-contrast .text-white\/60,
+html.a11y-contrast .text-white\/50,
+html.a11y-contrast .text-white\/40 { color: #fff !important; }
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media print {
+  header, footer, .fixed, button { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .bg-midnight,
+  .bg-white\/10,
+  .bg-white\/\[0\.07\] { background: #fff !important; color: #000 !important; }
+  .text-white\/70,
+  .text-white\/65,
+  .text-white\/60 { color: #111 !important; }
+}

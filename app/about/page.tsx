@@ -1,0 +1,2 @@
+import { Container } from "@/components/ui/container";import { Card } from "@/components/ui/card";
+export default function Page(){return <main className="min-h-screen bg-midnight pt-32"><Container><Card><h1 className="text-5xl font-black">About</h1><p className="mt-4 max-w-3xl text-white/70">Mirai Minds is a free-first MVP for a magical English learning platform for children and families in Hadano, Japan.</p></Card></Container></main>}

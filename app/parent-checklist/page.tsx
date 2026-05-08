@@ -1,0 +1,6 @@
+import { Container } from "@/components/ui/container";
+import { Card } from "@/components/ui/card";
+import { PrintButton } from "@/components/learning/print-button";
+
+const rows=["Stories read","Vocabulary cards practiced","Alphabet / phonics practiced","Games completed","Speaking practice","Writing practice","Parent notes"];
+export default function ParentChecklistPage(){return <main className="min-h-screen bg-midnight pt-28"><Container><section className="rounded-[3rem] bg-white/10 p-8"><p className="text-aqua">Printable parent tool</p><h1 className="mt-3 text-5xl font-black">Monthly learning checklist</h1><p className="mt-4 max-w-3xl text-white/70">A no-account paper tracker for families who want simple monthly structure.</p><div className="mt-5"><PrintButton/></div></section><section className="py-10"><Card className="p-6 print:bg-white print:text-black"><h2 className="text-3xl font-black">Mirai Minds Monthly Checklist</h2><div className="mt-4 grid gap-3 md:grid-cols-3"><p>Month: __________</p><p>Grade: __________</p><p>Name: __________</p></div><div className="mt-6 space-y-4">{rows.map(r=><div key={r} className="grid grid-cols-[1fr_120px] gap-4 border-b border-white/20 pb-3 print:border-black"><span>{r}</span><span>__________</span></div>)}</div></Card></section></Container></main>}

@@ -1,0 +1,15 @@
+"use client";
+import { useMemo, useState } from "react";
+import { Container } from "@/components/ui/container";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { pictureSentenceChoices, rhymingPairs, storyOrderSentences } from "@/data/free-features";
+import { CelebrationButton } from "@/components/learning/client-learning-tools";
+
+export default function ExtraGamesPage(){
+  const [sentence,setSentence]=useState<string[]>([]);
+  const [choice,setChoice]=useState("");
+  const shuffled=useMemo(()=>[...storyOrderSentences].sort(()=>0.5-Math.random()),[]);
+  const correct=sentence.join(" ")===storyOrderSentences.join(" ");
+  return <main className="min-h-screen bg-midnight pt-28"><Container><section className="rounded-[3rem] bg-gradient-to-br from-aqua/20 to-nebula/20 p-8"><p className="text-aqua">More free games</p><h1 className="mt-3 text-5xl font-black">Word maze, story order, rhymes, and picture sentences</h1><p className="mt-4 max-w-3xl text-white/70">Simple browser games that strengthen reading without paid services.</p></section><section className="grid gap-6 py-10 lg:grid-cols-2"><Card className="p-6"><h2 className="text-2xl font-black">Word maze</h2><p className="mt-2 text-white/65">Move forward by choosing the English word.</p><div className="mt-4 grid gap-3">{[["本","book"],["ねこ","cat"],["駅","station"]].map(([ja,en],i)=><div key={ja} className="rounded-2xl bg-white/10 p-4"><p className="text-aqua">Step {i+1}: {ja}</p><button onClick={()=>setChoice(en)} className="mt-2 rounded-xl bg-white px-4 py-2 font-bold text-midnight">{en}</button></div>)}</div>{choice&&<p className="mt-4 text-sunbeam">Good! You chose {choice}.</p>}</Card><Card className="p-6"><h2 className="text-2xl font-black">Drag-and-drop style story order</h2><p className="mt-2 text-white/65">Tap the sentences in the correct order.</p><div className="mt-4 flex flex-wrap gap-2">{shuffled.map(s=><button key={s} onClick={()=>setSentence([...sentence,s])} className="rounded-xl bg-white/10 px-3 py-2 text-sm">{s}</button>)}</div><div className="mt-4 rounded-2xl bg-black/20 p-4 text-white/70">{sentence.join(" ") || "Your story appears here."}</div><div className="mt-4 flex gap-2"><Button onClick={()=>setSentence([])}>Reset</Button>{correct&&<CelebrationButton label="Story complete"/>}</div></Card><Card className="p-6"><h2 className="text-2xl font-black">Rhyming pairs</h2><div className="mt-4 grid gap-3">{rhymingPairs.map(([a,b])=><div key={a} className="rounded-2xl bg-white/10 p-4"><b>{a}</b> rhymes with <b>{b}</b></div>)}</div></Card><Card className="p-6"><h2 className="text-2xl font-black">Picture sentence choice</h2><div className="mt-4 space-y-4">{pictureSentenceChoices.map(item=><div key={item.correct} className="rounded-2xl bg-white/10 p-4"><div className="text-5xl">{item.picture}</div><div className="mt-3 flex flex-wrap gap-2">{item.choices.map(c=><button key={c} onClick={()=>setChoice(c)} className={`rounded-xl px-3 py-2 text-sm ${choice===c&&c===item.correct?"bg-aqua text-midnight":"bg-white/10"}`}>{c}</button>)}</div></div>)}</div></Card></section></Container></main>
+}

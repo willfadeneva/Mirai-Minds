@@ -1,0 +1,8 @@
+import { Container } from "@/components/ui/container";
+import { Card } from "@/components/ui/card";
+import { japaneseGuidance } from "@/data/japanese-guidance";
+
+const promises = ["No login required", "No ads", "No tracking pixels", "No public profiles", "No student chat rooms", "Progress stays in this browser only", "Parents can reset local progress any time", "Voice recorder is local-only and does not upload audio"];
+export default function PrivacyPage(){return <main className="min-h-screen bg-midnight pt-28"><Container><section className="kid-hero rounded-[3rem] p-8 md:p-12"><p className="text-aqua">Child-safe by design</p><h1 className="mt-3 text-5xl font-black">Privacy and safety promise</h1><p className="mt-4 max-w-3xl text-white/70">Mirai Minds is built as a free standalone learning site for children and families. The MVP avoids accounts, ads, tracking, and social features.</p><div className="mt-5 grid gap-3 md:grid-cols-2">{japaneseGuidance.safety.map(item=><div key={item.en} className="rounded-2xl bg-white/70 p-4"><b>{item.en}</b><p className="mt-1 text-sm text-slate-600">{item.ja}</p></div>)}</div></section><section className="grid gap-5 py-10 md:grid-cols-2 lg:grid-cols-4">{promises.map((p)=><Card key={p} className="p-5"><div className="text-3xl">🛡️</div><h3 className="mt-3 text-xl font-black">{p}</h3></Card>)}</section><Card className="mb-12 p-6"><h2 className="text-3xl font-black">For parents</h2><p className="mt-3 text-white/70">This site stores learning stars in localStorage, which means the progress is saved only on the current browser/device. Clearing browser data resets it. No private child account is needed for the MVP.
+
+進捗は現在使っているブラウザ・端末内だけに保存されます。ブラウザデータを削除すると進捗もリセットされます。</p></Card></Container></main>}

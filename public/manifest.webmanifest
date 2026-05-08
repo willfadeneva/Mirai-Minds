@@ -1,0 +1,12 @@
+{
+  "name": "Mirai Minds",
+  "short_name": "Mirai Minds",
+  "description": "A free no-login English learning world for children in Hadano, Japan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071129",
+  "theme_color": "#22d3ee",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
