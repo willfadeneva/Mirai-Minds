@@ -6,15 +6,16 @@ import { englishCurriculum, getGradeCurriculum } from "@/data/english-curriculum
 import { getGradeLearningExtras } from "@/data/learning-extras";
 import { PrintButton } from "@/components/learning/print-button";
 import { CompleteButton } from "@/components/learning/progress-badges";
-import { makeProgressId } from "@/hooks/use-learning-progress";
+import { makeProgressId } from "@/lib/progress";
 
 export function generateStaticParams() {
   return englishCurriculum.map((grade) => ({ grade: String(grade.grade) }));
 }
 
-export default function WorksheetsPage({ params }: { params: { grade: string } }) {
-  const grade = getGradeCurriculum(Number(params.grade));
-  const extras = getGradeLearningExtras(Number(params.grade));
+export default async function WorksheetsPage({ params }: { params: Promise<{ grade: string }> }) {
+  const { grade: gradeParam } = await params;
+  const grade = getGradeCurriculum(Number(gradeParam));
+  const extras = getGradeLearningExtras(Number(gradeParam));
   if (!grade || !extras) notFound();
   const vocab = extras.vocabFlipCards.slice(0, 12);
   const stories = extras.storyBank.slice(0, 3);

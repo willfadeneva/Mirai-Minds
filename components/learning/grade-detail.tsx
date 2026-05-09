@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { InteractivePuzzles, StoryQuiz } from "@/components/learning/interactive-puzzles";
@@ -41,6 +42,32 @@ export function GradeDetail({ grade }: { grade: GradeCurriculum }) {
 
         <section className="py-8">
           <ProgressBadges grade={grade.grade} />
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            <Link
+              href={`/reading/${grade.grade}`}
+              className="rounded-[2rem] bg-white/90 p-6 text-slate-800 shadow-[0_18px_45px_rgba(14,165,233,0.12)] transition hover:-translate-y-1"
+            >
+              <p className="font-bold text-sky-600">New reading library</p>
+              <h3 className="mt-2 text-2xl font-black">30 longer stories</h3>
+              <p className="mt-2 text-sm text-slate-600">Popular classic-style readings, slow audio, vocabulary, and comprehension.</p>
+            </Link>
+            <Link
+              href={`/worksheets/${grade.grade}`}
+              className="rounded-[2rem] bg-white/90 p-6 text-slate-800 shadow-[0_18px_45px_rgba(14,165,233,0.12)] transition hover:-translate-y-1"
+            >
+              <p className="font-bold text-amber-600">Printable</p>
+              <h3 className="mt-2 text-2xl font-black">Worksheets</h3>
+              <p className="mt-2 text-sm text-slate-600">Tracing, vocabulary, and reading practice sheets.</p>
+            </Link>
+            <Link
+              href={`/games/${grade.grade}`}
+              className="rounded-[2rem] bg-white/90 p-6 text-slate-800 shadow-[0_18px_45px_rgba(14,165,233,0.12)] transition hover:-translate-y-1"
+            >
+              <p className="font-bold text-purple-600">Practice</p>
+              <h3 className="mt-2 text-2xl font-black">Mini games</h3>
+              <p className="mt-2 text-sm text-slate-600">Word matching, memory cards, sentence builder, and spelling.</p>
+            </Link>
+          </div>
         </section>
 
         <section className="py-12">

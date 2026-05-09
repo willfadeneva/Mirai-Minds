@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#22d3ee" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body><RegisterPWA/><Navbar/><main>{children}</main><Footer/><MascotGuide/></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><RegisterPWA/><Navbar/><main>{children}</main><Footer/><MascotGuide/></body></html>;
 }

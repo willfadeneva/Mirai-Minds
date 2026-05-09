@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-export type ProgressKind = "alphabet" | "vocab" | "story" | "game" | "worksheet" | "placement";
+export { makeProgressId } from "@/lib/progress";
+export type { ProgressKind } from "@/lib/progress";
+
 export type ProgressRecord = Record<string, boolean>;
 
 const STORAGE_KEY = "mirai-minds-progress-v1";
@@ -10,6 +12,7 @@ const REVIEW_KEY = "mirai-minds-review-v1";
 
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
+
   try {
     const raw = window.localStorage.getItem(key);
     return raw ? (JSON.parse(raw) as T) : fallback;
@@ -21,10 +24,6 @@ function readJson<T>(key: string, fallback: T): T {
 function writeJson<T>(key: string, value: T) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(key, JSON.stringify(value));
-}
-
-export function makeProgressId(kind: ProgressKind, grade: number | string, id: string) {
-  return `${kind}:grade-${grade}:${id}`;
 }
 
 export function useLearningProgress() {
@@ -40,7 +39,10 @@ export function useLearningProgress() {
     if (loaded) writeJson(STORAGE_KEY, progress);
   }, [progress, loaded]);
 
-  const completedCount = useMemo(() => Object.values(progress).filter(Boolean).length, [progress]);
+  const completedCount = useMemo(
+    () => Object.values(progress).filter(Boolean).length,
+    [progress]
+  );
 
   function isDone(id: string) {
     return Boolean(progress[id]);
@@ -56,18 +58,37 @@ export function useLearningProgress() {
 
   function resetProgress() {
     setProgress({});
-    if (typeof window !== "undefined") window.localStorage.removeItem(REVIEW_KEY);
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(REVIEW_KEY);
+    }
   }
 
   function countByPrefix(prefix: string) {
-    return Object.entries(progress).filter(([key, value]) => key.startsWith(prefix) && value).length;
+    return Object.entries(progress).filter(
+      ([key, value]) => key.startsWith(prefix) && value
+    ).length;
   }
 
-  return { progress, completedCount, isDone, markDone, toggleDone, resetProgress, countByPrefix };
+  return {
+    progress,
+    completedCount,
+    isDone,
+    markDone,
+    toggleDone,
+    resetProgress,
+    countByPrefix,
+  };
 }
 
 export type ReviewRating = "again" | "good" | "easy";
-export type ReviewItemState = { due: number; box: number; lastRating?: ReviewRating; reviews: number };
+
+export type ReviewItemState = {
+  due: number;
+  box: number;
+  lastRating?: ReviewRating;
+  reviews: number;
+};
+
 export type ReviewState = Record<string, ReviewItemState>;
 
 const intervalsByBox = [0, 1, 2, 4, 7, 14, 30];
@@ -87,9 +108,21 @@ export function useSpacedReview() {
 
   function rate(id: string, rating: ReviewRating) {
     setReview((current) => {
-      const old = current[id] ?? { due: Date.now(), box: 0, reviews: 0 };
-      const nextBox = rating === "again" ? 0 : rating === "good" ? Math.min(old.box + 1, 5) : Math.min(old.box + 2, 6);
+      const old = current[id] ?? {
+        due: Date.now(),
+        box: 0,
+        reviews: 0,
+      };
+
+      const nextBox =
+        rating === "again"
+          ? 0
+          : rating === "good"
+            ? Math.min(old.box + 1, 5)
+            : Math.min(old.box + 2, 6);
+
       const days = intervalsByBox[nextBox] ?? 1;
+
       return {
         ...current,
         [id]: {
@@ -111,5 +144,10 @@ export function useSpacedReview() {
     return !item || item.due <= Date.now();
   }
 
-  return { review, rate, getItem, isDue };
+  return {
+    review,
+    rate,
+    getItem,
+    isDue,
+  };
 }

@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return englishCurriculum.map((grade) => ({ grade: String(grade.grade) }));
 }
 
-export default function GamesPage({ params }: { params: { grade: string } }) {
-  const grade = getGradeCurriculum(Number(params.grade));
+export default async function GamesPage({ params }: { params: Promise<{ grade: string }> }) {
+  const { grade: gradeParam } = await params;
+  const grade = getGradeCurriculum(Number(gradeParam));
   if (!grade) notFound();
   return (
     <main className="min-h-screen bg-midnight pt-28">

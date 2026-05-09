@@ -8,6 +8,7 @@ export const site = {
     ["Learn", "/learn"],
     ["Daily", "/daily-mission"],
     ["Games", "/extra-games"],
+    ["Reading", "/reading"],
     ["Stories", "/stories"],
     ["Parents", "/parent-progress"],
     ["Safety", "/privacy"],

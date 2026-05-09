@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
-import { ReviewClient } from "@/components/learning/review-client";
+import { ReadingLibraryClient } from "@/components/learning/reading-library-client";
 import {
   englishCurriculum,
   getGradeCurriculum,
 } from "@/data/english-curriculum";
+import { getReadingStoriesForGrade } from "@/data/reading-library";
 
 export function generateStaticParams() {
   return englishCurriculum.map((grade) => ({
@@ -11,7 +12,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function ReviewPage({
+export default async function GradeReadingPage({
   params,
 }: {
   params: Promise<{ grade: string }>;
@@ -22,8 +23,10 @@ export default async function ReviewPage({
   if (!Number.isInteger(gradeNumber)) notFound();
 
   const grade = getGradeCurriculum(gradeNumber);
-
   if (!grade) notFound();
 
-  return <ReviewClient grade={grade.grade} />;
+  const stories = getReadingStoriesForGrade(gradeNumber);
+  if (!stories.length) notFound();
+
+  return <ReadingLibraryClient grade={gradeNumber} stories={stories} />;
 }
